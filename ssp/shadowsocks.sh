@@ -45,8 +45,18 @@ find_bin() {
 	ssr) ret="/usr/bin/ssr-redir" ;;
 	ssr-local) ret="/usr/bin/ssr-local" ;;
 	ssr-server) ret="/usr/bin/ssr-server" ;;
-	v2ray) ret="/tmp/v2ray" ;;
-	trojan) ret="/usr/bin/trojan" ;;
+	v2ray)  
+	      if [ -f "/usr/bin/v2ray" ] ; then
+                ret="/usr/bin/v2ray"
+             else
+                ret="/tmp/v2ray"
+              fi ;;
+	trojan)
+	      if [ -f "/usr/bin/trojan" ] ; then
+                ret="/usr/bin/trojan"
+             else
+                ret="/tmp/trojan"
+              fi ;;
 	socks5) ret="/usr/bin/ipt2socks" ;;
 	esac
 	echo $ret
